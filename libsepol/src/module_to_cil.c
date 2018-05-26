@@ -1006,6 +1006,12 @@ static int ebitmap_to_names(struct ebitmap *map, char **vals_to_names, char ***n
 		goto exit;
 	}
 
+	if (!num) {
+		*names = NULL;
+		*num_names = 0;
+		goto exit;
+	}
+
 	name_arr = malloc(sizeof(*name_arr) * num);
 	if (name_arr == NULL) {
 		log_err("Out of memory");
